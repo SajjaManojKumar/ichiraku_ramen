@@ -1,0 +1,65 @@
+/* Common CSS file called in resources/layout/layout.blade.php */
+
+html, body {
+    background-color: rgb(252, 243, 243);
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 50px;
+    text-transform: uppercase;
+    border-bottom: 2px solid;
+    border-top: 2px solid;
+    padding: 12px 0;
+    color: firebrick;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+footer{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0 15px;
+    color: firebrick;
+    background-color: darksalmon;
+}
