@@ -8,13 +8,23 @@
 <!-- Access to only body part of layout file -->
 @section('body-content')
 <div class="wrapper meat-details">
-    <h1>Order - {{ $order->order_id }}</h1>
-    <p class="name"><strong> Customer - {{ $order->name }} </strong></p>
-    <p class="phone">Phone number - {{ $order->phoneNumber }}</p>
+    <h1>RECEIPT</h1>
+    <p>========================</p>
+    <p class="id">Order - {{ $order->order_id}}</p>
+    <p>----------------------------------</p>
+    <p class="name">Customer - {{ $order->name }}</p>
+    <p>----------------------------------</p>
+    <p class="phoneNumber">Phone Number - {{ $order->phoneNumber }}</p>
+    <p>----------------------------------</p>
     <p class="item">Soup - {{ $soup->item_name }}</p>
-    <p class="item">Noodle - {{ $noodle->item_name }}</p>
-    <p class="item">Topping - {{ $topping->item_name }}</p>
-    <p class="cost">Total Cost - {{ $order->totalCost }}</p>
+    <p>----------------------------------</p>
+    <p class="item">Noodles - {{ $noodle->item_name }}</p>
+    <p>----------------------------------</p>
+    <p class="item">Toppings - {{ $topping->item_name }}</p>
+    <p>----------------------------------</p>
+    <p class="item">Total Cost - {{ $order->totalCost }}</p>
+    <p>========================</p>
 </div>
+<button onClick="window.print()">Print</button>
 <a href="/" class="home"> Welcome page </a>
 @endsection
