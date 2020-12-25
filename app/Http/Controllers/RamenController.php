@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Ramen;
 use App\Models\Item;
 
+# tempory item... 
+class nullItem{
+    public $item_id = 'Deleted-Item';
+    public $item_name = 'Deleted-Item';
+    public $price = 'Deleted-Item';
+    public $itemCategory = "Deleted-Item";
+}
+
 class RamenController extends Controller
 {
     public function welcome()
@@ -93,9 +101,12 @@ class RamenController extends Controller
     {
         # code...
         $order = Ramen::findOrFail($orderId);
-        $soup = Item::findOrFail($order->S_item_id);
-        $noodle = Item::findOrFail($order->N_item_id);
-        $topping = Item::findOrFail($order->T_item_id);
+        $soup = Item::find($order->S_item_id);
+        if($soup == null){$soup = new nullItem();}
+        $noodle = Item::find($order->N_item_id);
+        if($noodle == null){$noodle = new nullItem();}
+        $topping = Item::find($order->T_item_id);
+        if($topping == null){$topping = new nullItem();}
         return view('ramen/show', ['order' => $order, 'soup' => $soup, 'noodle' => $noodle, 'topping' => $topping]);
     }
 
@@ -105,9 +116,12 @@ class RamenController extends Controller
     {
         # code...
         $order = Ramen::findOrFail($orderId);
-        $soup = Item::findOrFail($order->S_item_id);
-        $noodle = Item::findOrFail($order->N_item_id);
-        $topping = Item::findOrFail($order->T_item_id);
+        $soup = Item::find($order->S_item_id);
+        if($soup == null){$soup = new nullItem();}
+        $noodle = Item::find($order->N_item_id);
+        if($noodle == null){$noodle = new nullItem();}
+        $topping = Item::find($order->T_item_id);
+        if($topping == null){$topping = new nullItem();}
         return view('ramen/bill', ['order' => $order, 'soup' => $soup, 'noodle' => $noodle, 'topping' => $topping]);
     }
 
