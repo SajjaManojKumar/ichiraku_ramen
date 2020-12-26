@@ -6,25 +6,26 @@
 
 <!-- Access to only body part of layout file -->
 @section('content')
-<div class="flex-center position-ref full-height">
-    <div class="content">
-        <div class="title m-b-md">
-            All orders
-        </div>
-        <table>
+<h1 class="text-center">ALL ORDERS</h1>
+<div class="container">
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Soup</th>
+        <th scope="col">Noodles</th>
+        <th scope="col">Toppings</th>
+        <th scope="col">Total Cost</th>
+        <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+                 @foreach($ramens as $ramen)
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Soup</th>
-                <th>Noodles</th>
-                <th>Toppings</th>
-                <th>Total Cost</th>
-                <th>Status</th>
-            </tr>
-            @foreach($ramens as $ramen)
-            <tr>
-                <td><a href="{{ route('ramen.bill', $ramen['order_id']) }}">{{ $ramen['order_id'] }}</a></td>
+                <th scope="row"><a href="{{ route('ramen.bill', $ramen['order_id']) }}">{{ $ramen['order_id'] }}</a></th>
                 <td><a href="{{ route('ramen.bill', $ramen['order_id']) }}">{{ $ramen['name'] }}</a></td>
                 <td>{{ $ramen['phoneNumber'] }}</td>
                 <td>{{ $ramen['S_item_id'] }}</td>
@@ -39,10 +40,8 @@
                     @endif
                 </td>
             </tr>
-            @endforeach>
-        </table>
-        <a href="{{ route('home') }}" class="back"> Home </a>
-    </div>
-</div>
-<a href="/" class="home"> Welcome page </a>
+            @endforeach
+  </tbody>
+</table>
+</div> 
 @endsection

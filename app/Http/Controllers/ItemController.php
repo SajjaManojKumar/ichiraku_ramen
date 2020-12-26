@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Ramen;
 
 class ItemController extends Controller
 {
@@ -42,6 +43,13 @@ class ItemController extends Controller
     {
         # code...
         $item = Item::findOrFail($itemId);
+        $ramens = Ramen::where('completed', FALSE)->get();
+        foreach($ramens as $ramen){
+            if($ramen->S_item_id == $itemId or $ramen->T_item_id == $itemId or $ramen->N_item_id == $itemId){
+                $ramen->totalCost = $ramen->totalCost - $item->price;
+            }
+            $ramen->save();
+        }
         $item->delete();
         return redirect()->route('item.index');
     }

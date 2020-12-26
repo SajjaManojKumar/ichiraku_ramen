@@ -19,15 +19,15 @@
     <!-- Styles -->
     
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="{{asset('css/main.css')}}" rel="stylesheet">
     
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    The Ramen Shop
+                <a class="navbar-brand js-scroll-trigger logo-header" href="{{route('welcome')}}">
+                    <img class="img-fluid logo" src="https://i.pinimg.com/originals/c0/fb/ed/c0fbedf13d4d6f0540c4b3f0ecbb4e37.png" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

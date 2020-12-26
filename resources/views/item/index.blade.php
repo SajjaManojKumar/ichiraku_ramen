@@ -6,37 +6,33 @@
 
 <!-- Access to only body part of layout file -->
 @section('content')
-<div class="flex-center position-ref full-height">
-    <div class="content">
-        <div class="title m-b-md">
-            All items
-        </div>
-        <table>
+<h1 class="text-center">ALL ITEMS</h1>
+<div class="container">
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">PRICE</th>
+      <th scope="col">CATEGORY</th>
+      <th scope="col">ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+     @foreach($items as $item)
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Delete Item</th>
-            </tr>
-            @foreach($items as $item)
-            <tr>
-                <td>{{ $item['item_id'] }}</td>
+                <th scope="row">{{ $item['item_id'] }}</th>
                 <td>{{ $item['item_name'] }}</td>
                 <td>${{ $item['price'] }}</td>
                 <td>{{ $item['itemCategory'] }}</td>
                 <td><form action="{{ route('item.destroy', $item['item_id']) }}" method="POST">
                     @csrf 
                     @method('DELETE')
-                    <button>DELETE</button>
+                    <button class="btn btn-danger">DELETE</button>
                 </form></td>
             </tr>
             @endforeach
-        </table>
-        <a href="{{ route('item.create') }}" class="link">Add Item</a>
-        &nbsp;
-        <a href="{{ route('home') }}" class="back"> Home </a>
-    </div>
-</div>
-<a href="/" class="home"> Welcome page </a>
+  </tbody>
+</table>
+</div> 
 @endsection
